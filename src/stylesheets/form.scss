@@ -3,7 +3,6 @@ form {
   flex-direction: column;
   gap: calc($element-height / 2);
   width: clamp(200px, 100%, 320px);
-  margin: $element-height;
 
   .text-field {
     width: 100%;
@@ -27,9 +26,6 @@ form {
         border-bottom: 1px solid $input-border-color;
         outline: none;
         height: $element-height;
-
-        /*todo: remove later*/
-        background: aliceblue;
 
         &:focus {
           color: $input-color-focus;
@@ -64,10 +60,16 @@ form {
     color: #ffffff;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    position: relative;
+    transition: opacity 0.3s ease, color 0.3s ease, background-color 0.2s ease;
 
     &:hover {
       opacity: 0.7;
+    }
+
+    &:disabled {
+      color: $button-disabled-color;
+      background-color: $button-disabled-background;
     }
   }
 }

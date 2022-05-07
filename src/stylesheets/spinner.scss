@@ -1,0 +1,18 @@
+.spinner {
+  border-radius: 50%;
+  border: 2px solid $button-disabled-color;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
