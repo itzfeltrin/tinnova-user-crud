@@ -6,6 +6,8 @@ import {TextField} from '../../components/TextField';
 // @ts-ignore
 import MaskedInput from 'react-text-mask';
 import {Spinner} from '../../components/Spinner';
+import {useCallback} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;
 const PHONE_REGEX = /\+\d{2} \(\d{2}\) \d{4,5}-\d{4}/;
@@ -20,14 +22,21 @@ const formSchema: yup.SchemaOf<UserData> = yup.object({
 });
 
 export const AddUser = () => {
-	const onSubmit = async (values: UserData) => {
-		const res = await new Promise((resolve) => {
+	const navigate = useNavigate();
+
+	const onSubmit = useCallback(async (values: UserData) => {
+		const res: UserData = await new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(values);
-			}, 200000);
+			}, 2000);
 		});
-		console.log(res);
-	};
+		const savedUsers = localStorage.getItem("users");
+		const newUsers: Array<UserData> = savedUsers ? [...JSON.parse(savedUsers), res] : [res];
+		localStorage.setItem("users", JSON.stringify(newUsers));
+		navigate('list', {
+			replace: true
+		})
+	}, [navigate]);
 
 	const {register, control, handleSubmit, formState} = useForm<UserData>({
 		defaultValues: {
@@ -40,7 +49,7 @@ export const AddUser = () => {
 	});
 
 	return (
-		<main>
+		<main className={'page'}>
 			<h1>Adicionar novo usuário</h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<TextField

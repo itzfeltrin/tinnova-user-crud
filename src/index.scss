@@ -11,3 +11,12 @@
 html {
   font-family: Verdana, Arial, sans-serif;
 }
+
+.page {
+  width: clamp(200px, 95%, 1024px);
+  margin: 2rem auto;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
