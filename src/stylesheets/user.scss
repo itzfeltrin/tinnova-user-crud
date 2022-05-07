@@ -16,6 +16,7 @@
     background-repeat: no-repeat;
     background-position-x: right;
     border-radius: 0.25rem;
+    position: relative;
 
     .name {
       text-transform: uppercase;
@@ -38,6 +39,60 @@
 
     p {
       margin-top: 0.5rem;
+    }
+
+    .menu {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      display: flex;
+      gap: 0.25rem;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0.5rem;
+
+      .dot {
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        background-color: rgba($color: $text-color, $alpha: 0.5);
+        transition: background-color ease-out 0.15s;
+      }
+
+      &:hover .dot {
+        background-color: $text-color;
+      }
+    }
+  }
+}
+
+.user-actions-content .actions {
+  display: flex;
+  gap: 0.25rem;
+
+  button {
+    flex: 1;
+    padding: 0.25rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+
+    &.edit {
+      border: 2px solid $primary-color;
+      border-radius: 0.25rem;
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    &.remove {
+      border: 2px solid #dd0000;
+      border-radius: 0.25rem;
+      color: #dd0000;
+      font-weight: 600;
     }
   }
 }
