@@ -10,7 +10,7 @@ export const Router = () => {
 					<Route path={'new'} element={<AddUser/>}/>
 					<Route path={'list'} element={<UserList/>}/>
 				</Route>
-				<Route path={'*'} element={<Navigate to={'users/new'} replace />} />
+				<Route path={'*'} element={<Navigate to={'users/list'} replace />} />
 			</Routes>
 		</BrowserRouter>
 	);

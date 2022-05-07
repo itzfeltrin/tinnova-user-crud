@@ -1,0 +1,40 @@
+.user {
+  $text-color: $input-color-focus;
+
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid darken($primary-color, 10%);
+  background-image: linear-gradient(
+                  90deg,
+                  transparent,
+                  rgba($color: $text-color, $alpha: 0.05),
+                  rgba($color: darken($primary-color, 25%), $alpha: 0.10) 75%
+  );
+  background-size: clamp(100px, 50%, 400px);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  border-radius: 0.25rem;
+
+  .name {
+    text-transform: uppercase;
+    font-family: 'Garamond', serif;
+    letter-spacing: -1.25px;
+    line-height: 1.5;
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+    color: $text-color;
+    border-left: 0.5rem solid $primary-color;
+    padding-left: 0.5rem;
+  }
+
+  .email {
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    font-style: oblique;
+    color: lighten($text-color, 40%);
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,6 +1,7 @@
 @import "./stylesheets/variables";
 @import "./stylesheets/form";
 @import "./stylesheets/spinner";
+@import "./stylesheets/user";
 
 * {
   margin: 0;
@@ -19,4 +20,8 @@ html {
   h1 {
     margin-bottom: 2rem;
   }
+}
+
+ul {
+  list-style: none;
 }

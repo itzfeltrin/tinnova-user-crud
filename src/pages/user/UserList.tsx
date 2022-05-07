@@ -1,51 +1,19 @@
-import {useCallback, useEffect, useState} from 'react';
-import {UserData} from '../../types/user';
-
-const mockData = [
-	{
-		'name': 'Joao da Silva',
-		'cpf': '26899337649',
-		'phone': '4233335555',
-		'email': 'joao@joaosilva.com.br'
-	},
-	{
-		'name': 'Maria Antonieta',
-		'cpf': '65138896180',
-		'phone': '1255553333',
-		'email': 'maria@mariaantonieta.com.br'
-	},
-	{
-		'name': 'Luiz Souza',
-		'cpf': '32420496329',
-		'phone': '1144446666',
-		'email': 'luiz@luizsouza.com.br'
-	}
-];
+import {useUserContext} from '../../context/User.context';
+import {User} from '../../components/User';
 
 export const UserList = () => {
-	const [users, setUsers] = useState<Array<UserData>>([]);
-
-	const fetchData = useCallback(async () => {
-		const data: Array<UserData> = await new Promise((resolve) => {
-			setTimeout(() => {
-				resolve(mockData);
-			}, 2500);
-		});
-
-		setUsers(data);
-	}, []);
-
-	useEffect(() => {
-		fetchData();
-	}, [fetchData]);
+	const {users} = useUserContext();
 
 	return (
-		<ul>
-			{users.map(user => (
-				<li key={user.email}>
-					{user.name}
-				</li>
-			))}
-		</ul>
+		<main className={'page'}>
+			<h1>Lista de usuários</h1>
+			<ul>
+				{users.map(user => (
+					<li key={user.email}>
+						<User user={user}/>
+					</li>
+				))}
+			</ul>
+		</main>
 	);
 };

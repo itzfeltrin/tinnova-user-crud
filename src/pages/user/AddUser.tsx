@@ -30,10 +30,10 @@ export const AddUser = () => {
 				resolve(values);
 			}, 2000);
 		});
-		const savedUsers = localStorage.getItem("users");
+		const savedUsers = localStorage.getItem("tinnova.users");
 		const newUsers: Array<UserData> = savedUsers ? [...JSON.parse(savedUsers), res] : [res];
-		localStorage.setItem("users", JSON.stringify(newUsers));
-		navigate('list', {
+		localStorage.setItem("tinnova.users", JSON.stringify(newUsers));
+		navigate('users/list', {
 			replace: true
 		})
 	}, [navigate]);
