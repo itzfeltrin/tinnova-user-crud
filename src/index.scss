@@ -25,3 +25,9 @@ html {
 ul {
   list-style: none;
 }
+
+a {
+  @include button-base;
+  display: inline-block;
+  text-decoration: none;
+}

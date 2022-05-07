@@ -30,3 +30,23 @@ $element-height: 2.5rem;
 $primary-color: #00c8b3;
 $button-disabled-color: #dddcdc;
 $button-disabled-background: #f6f6f6;
+
+@mixin button-base {
+  height: $element-height;
+  line-height: $element-height;
+  font-size: 1rem;
+  padding: 0 1rem;
+  border: none;
+  outline: none;
+  border-radius: 2rem;
+  background-color: $primary-color;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.3s ease, color 0.3s ease, background-color 0.2s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

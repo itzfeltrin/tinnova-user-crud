@@ -1,5 +1,6 @@
 import {useUserContext} from '../../context/User.context';
 import {User} from '../../components/User';
+import {Link} from 'react-router-dom';
 
 export const UserList = () => {
 	const {users} = useUserContext();
@@ -7,7 +8,8 @@ export const UserList = () => {
 	return (
 		<main className={'page'}>
 			<h1>Lista de usuários</h1>
-			<ul>
+			<Link to={'/users/new'} >Adicionar novo usuário</Link>
+			<ul className={'user-list'}>
 				{users.map(user => (
 					<li key={user.email}>
 						<User user={user}/>

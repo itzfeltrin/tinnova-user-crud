@@ -7,7 +7,8 @@ import {TextField} from '../../components/TextField';
 import MaskedInput from 'react-text-mask';
 import {Spinner} from '../../components/Spinner';
 import {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {useUserContext} from '../../context/User.context';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;
 const PHONE_REGEX = /\+\d{2} \(\d{2}\) \d{4,5}-\d{4}/;
@@ -22,6 +23,8 @@ const formSchema: yup.SchemaOf<UserData> = yup.object({
 });
 
 export const AddUser = () => {
+	const {addUser} = useUserContext();
+
 	const navigate = useNavigate();
 
 	const onSubmit = useCallback(async (values: UserData) => {
@@ -30,13 +33,13 @@ export const AddUser = () => {
 				resolve(values);
 			}, 2000);
 		});
-		const savedUsers = localStorage.getItem("tinnova.users");
-		const newUsers: Array<UserData> = savedUsers ? [...JSON.parse(savedUsers), res] : [res];
-		localStorage.setItem("tinnova.users", JSON.stringify(newUsers));
+
+		addUser(res);
+
 		navigate('users/list', {
 			replace: true
-		})
-	}, [navigate]);
+		});
+	}, [addUser, navigate]);
 
 	const {register, control, handleSubmit, formState} = useForm<UserData>({
 		defaultValues: {
@@ -51,7 +54,8 @@ export const AddUser = () => {
 	return (
 		<main className={'page'}>
 			<h1>Adicionar novo usuário</h1>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<Link to={'/users/list'}>Listagem de usuários</Link>
+			<form onSubmit={handleSubmit(onSubmit)} className={'user-form'}>
 				<TextField
 					{...register('name')}
 					type={'text'}

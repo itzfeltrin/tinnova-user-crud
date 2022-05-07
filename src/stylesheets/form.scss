@@ -1,8 +1,9 @@
-form {
+.user-form {
   display: flex;
   flex-direction: column;
   gap: calc($element-height / 2);
   width: clamp(200px, 100%, 320px);
+  margin-top: 1rem;
 
   .text-field {
     width: 100%;
@@ -52,20 +53,8 @@ form {
   }
 
   button {
-    height: $element-height;
-    border: none;
-    outline: none;
-    border-radius: 2rem;
-    background-color: $primary-color;
-    color: #ffffff;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
+    @include button-base;
     transition: opacity 0.3s ease, color 0.3s ease, background-color 0.2s ease;
-
-    &:hover {
-      opacity: 0.7;
-    }
 
     &:disabled {
       color: $button-disabled-color;
