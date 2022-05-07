@@ -1,58 +1,40 @@
-import {FormEventHandler} from 'react';
+import {useForm, Controller} from 'react-hook-form';
 import * as yup from 'yup';
+import {UserData} from '../../types/user';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {TextField} from '../../components/TextField';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;
-const PHONE_REGEX = /\(\d{2}\) \d{4,5}-\d{4}/;
+const PHONE_REGEX = /\+\d{2} \(\d{2}\) \d{4,5}-\d{4}/;
 
-const formSchema = yup.object({
-	name: yup.string().required("Preencha o campo"),
-	email: yup.string().required("Preencha o campo").email("E-mail inválido"),
-	cpf: yup.string().required("Preencha o campo").matches(CPF_REGEX, "CPF inválido"),
-	phone: yup.string().required("Preencha o campo").matches(PHONE_REGEX, "Telefone inválido"),
+const formSchema: yup.SchemaOf<UserData> = yup.object({
+	name: yup.string().required('Preencha o campo'),
+	email: yup.string().required('Preencha o campo').email('E-mail inválido'),
+	cpf: yup.string().required('Preencha o campo').matches(CPF_REGEX, 'CPF inválido'),
+	phone: yup.string().required('Preencha o campo').matches(PHONE_REGEX, 'Telefone inválido'),
 });
 
 export const AddUser = () => {
-	const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-		event.preventDefault();
-
-		const elements = Array.from((event.target as HTMLFormElement).elements)
-			.filter(element => {
-				const input = element as HTMLInputElement;
-				return input.name !== '';
-			})
-			.map((element) => {
-				const input = element as HTMLInputElement;
-				return {
-					name: input.name,
-					value: input.value,
-				};
-			})
-			.reduce((acc, element) => ({
-				...acc,
-				[element.name]: element.value,
-			}), {});
-
-		console.log(elements);
+	const onSubmit = (values: UserData) => {
+		console.table(values);
 	};
 
+	const {register, control, handleSubmit, formState} = useForm<UserData>({
+		defaultValues: {
+			name: '',
+			email: '',
+			cpf: '',
+			phone: '',
+		},
+		resolver: yupResolver(formSchema),
+	});
+
 	return (
-		<form onSubmit={onSubmit}>
-			<div className="input-field">
-				<input name={'name'} id={'name'} type={'text'}/>
-				<label htmlFor={'name'}>Nome completo (sem abreviações)</label>
-			</div>
-			<div className="input-field">
-				<input name={'email'} id={'email'} type={'email'}/>
-				<label htmlFor={'email'}>E-mail</label>
-			</div>
-			<div className="input-field">
-				<input name={'cpf'} id={'cpf'} type={'text'}/>
-				<label htmlFor={'cpf'}>CPF</label>
-			</div>
-			<div className="input-field">
-				<input name={'phone'} id={'phone'} type={'text'}/>
-				<label htmlFor={'phone'}>Telefone</label>
-			</div>
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<TextField {...register('name')} type={'text'} label={'Nome completo (sem abreviações)'} error={formState.errors.name}/>
+			<TextField {...register('email')}  type={'email'} label={'E-mail'} error={formState.errors.email}/>
+			<TextField {...register('cpf')}  type={'text'} label={'CPF'} error={formState.errors.cpf}/>
+			<TextField {...register('phone')}  type={'text'} label={'Telefone'} error={formState.errors.phone}/>
 			<button type={'submit'}>Cadastrar</button>
 		</form>
 	);

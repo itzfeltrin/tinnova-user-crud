@@ -1,0 +1,73 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: calc($element-height / 2);
+  width: clamp(200px, 100%, 320px);
+  margin: $element-height;
+
+  .text-field {
+    width: 100%;
+
+    .relative-box {
+      position: relative;
+
+      label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: top 0.3s ease, font-size 0.3s ease;
+        font-size: 0.9em;
+      }
+
+      input {
+        width: 100%;
+        color: $input-color;
+        border: none;
+        border-bottom: 1px solid $input-border-color;
+        outline: none;
+        height: $element-height;
+
+        /*todo: remove later*/
+        background: aliceblue;
+
+        &:focus {
+          color: $input-color-focus;
+        }
+
+        &.invalid {
+          border-bottom-color: $invalid-color;
+        }
+
+        &:focus, &:not(.empty) {
+          & + label {
+            top: 0%;
+            font-size: 0.75em;
+          }
+        }
+      }
+    }
+
+
+    .error-message {
+      font-size: 0.75rem;
+      color: $invalid-color;
+    }
+  }
+
+  button {
+    height: $element-height;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    background-color: $button-color;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

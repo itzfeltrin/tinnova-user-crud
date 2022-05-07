@@ -1,3 +1,6 @@
+@import "./stylesheets/variables";
+@import "./stylesheets/form";
+
 * {
   margin: 0;
   padding: 0;
@@ -6,95 +9,4 @@
 
 html {
   font-family: Verdana, Arial, sans-serif;
-}
-
-/*Guia de estilo
-
-Input:
-• Cor da fonte sem foco: #efeeed.
-• Cor da fonte com foco: #333333.
-• Cor da borda: #efeeed.
-
-Input Inválido:
-• Cor da fonte: #eb4a46.
-• Cor da borda: #eb4a46.
-
-Botão Habilitado:
-• Cor da fonte com foco: #ffffff.
-• Cor de background: #00c8b3.
-
-Botão Hover:
-• Opacidade do botão com hover: 70%.
-
-Botão Desabilitado:
-• Cor da fonte sem foco: #dddcdc.
-• Cor de background: #f6f6f6.
-
-*/
-
-$input-color: #efeeed;
-$input-color-focus: #333333;
-$input-border-color: #efeeed;
-$invalid-color: #eb4a46;
-$element-height: 2.5rem;
-$button-color: #00c8b3;
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: calc($element-height / 2);
-  width: clamp(200px, 100%, 320px);
-  margin: $element-height;
-
-  .input-field {
-    width: 100%;
-    position: relative;
-
-    label {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: top 0.3s ease, font-size 0.3s ease;
-      font-size: 0.9em;
-    }
-
-    input {
-      width: 100%;
-      color: $input-color;
-      border: none;
-      border-bottom: 1px solid $input-border-color;
-      outline: none;
-      height: $element-height;
-
-      &:focus {
-        color: $input-color-focus;
-
-        & + label {
-          top: 0%;
-          font-size: 0.75em;
-        }
-      }
-
-      &.invalid {
-        border-bottom-color: $invalid-color;
-      }
-    }
-  }
-
-  button {
-    height: $element-height;
-    border: none;
-    outline: none;
-    border-radius: 2rem;
-    background-color: $button-color;
-    color: #ffffff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 }
