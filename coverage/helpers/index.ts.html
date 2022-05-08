@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,46 +94,46 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const getClassName = <span class="fstat-no" title="function not covered" >(o</span>bj: Record&lt;string, boolean&gt;): string =&gt; {
-	const className = <span class="cstat-no" title="statement not covered" >Object</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const getClassName = (obj: Record&lt;string, boolean&gt;): string =&gt; {
+	const className = Object
 		.keys(obj)
-		.map(<span class="fstat-no" title="function not covered" >key </span>=&gt; (<span class="cstat-no" title="statement not covered" >{key, value: obj[key]})</span>)
-		.filter(<span class="fstat-no" title="function not covered" >obj </span>=&gt; <span class="cstat-no" title="statement not covered" >obj.value)</span>
-		.map(<span class="fstat-no" title="function not covered" >obj </span>=&gt; <span class="cstat-no" title="statement not covered" >obj.key)</span>
+		.map(key =&gt; ({key, value: obj[key]}))
+		.filter(obj =&gt; obj.value)
+		.map(obj =&gt; obj.key)
 		.join(' ');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >	return className;</span>
+	return className;
 };
 &nbsp;
 const formatCpf = (raw: string): string =&gt; {
@@ -142,12 +142,12 @@ const formatCpf = (raw: string): string =&gt; {
 &nbsp;
 const formatPhone = (raw: string): string =&gt; {
 	/* se está com DDI, DDD e 9 números */
-	<span class="missing-if-branch" title="if path not taken" >I</span>if (raw.length === 13) {
-<span class="cstat-no" title="statement not covered" >		return '+' + raw.substring(0, 2) + ' (' + raw.substring(2, 4) + ') ' + raw.substring(4, 9) + '-' + raw.substring(9);</span>
+	if (raw.length === 13) {
+		return '+' + raw.substring(0, 2) + ' (' + raw.substring(2, 4) + ') ' + raw.substring(4, 9) + '-' + raw.substring(9);
 	}
 	/* se está com DDD e 8 números */
-	<span class="missing-if-branch" title="if path not taken" >I</span>if (raw.length === 10) {
-<span class="cstat-no" title="statement not covered" >		return '+55 (' + raw.substring(0, 2) + ') ' + raw.substring(2, 6) + '-' + raw.substring(6);</span>
+	if (raw.length === 10) {
+		return '+55 (' + raw.substring(0, 2) + ') ' + raw.substring(2, 6) + '-' + raw.substring(6);
 	}
 	return raw;
 }
@@ -163,7 +163,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun May 08 2022 00:50:35 GMT-0300 (Brasilia Standard Time)
+                at Sun May 08 2022 08:32:24 GMT-0300 (Brasilia Standard Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
