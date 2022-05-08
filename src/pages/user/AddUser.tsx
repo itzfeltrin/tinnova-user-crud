@@ -6,9 +6,10 @@ import {TextField} from '../../components/TextField';
 // @ts-ignore
 import MaskedInput from 'react-text-mask';
 import {Spinner} from '../../components/Spinner';
-import {useCallback} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {useCallback, useEffect, useMemo} from 'react';
+import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 import {useUserContext} from '../../context/User.context';
+import {formatCpf, formatPhone} from '../../helpers';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;
 const PHONE_REGEX = /\+\d{2} \(\d{2}\) \d{4,5}-\d{4}/;
@@ -22,9 +23,16 @@ const formSchema: yup.SchemaOf<UserData> = yup.object({
 	phone: yup.string().required('Preencha o campo').matches(PHONE_REGEX, 'Telefone inválido'),
 });
 
-export const AddUser = () => {
-	const {addUser} = useUserContext();
+function useQuery() {
+	const { search } = useLocation();
 
+	return useMemo(() => new URLSearchParams(search), [search]);
+}
+
+export const AddUser = () => {
+	const {upsertUser} = useUserContext();
+
+	const query = useQuery();
 	const navigate = useNavigate();
 
 	const onSubmit = useCallback(async (values: UserData) => {
@@ -34,14 +42,19 @@ export const AddUser = () => {
 			}, 2000);
 		});
 
-		addUser(res);
+		const oldUser = query.get("user");
+		if (oldUser) {
+			upsertUser(res, JSON.parse(oldUser).email);
+		} else {
+			upsertUser(res);
+		}
 
-		navigate('users/list', {
+		navigate('/users/list', {
 			replace: true
 		});
-	}, [addUser, navigate]);
+	}, [upsertUser, navigate]);
 
-	const {register, control, handleSubmit, formState} = useForm<UserData>({
+	const {register, handleSubmit, formState, setValue} = useForm<UserData>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -50,6 +63,16 @@ export const AddUser = () => {
 		},
 		resolver: yupResolver(formSchema),
 	});
+
+	useEffect(() => {
+		const user = query.get('user');
+		if (!user) return;
+		const parsed = JSON.parse(user);
+		setValue('name', parsed.name);
+		setValue('email', parsed.email);
+		setValue('cpf', formatCpf(parsed.cpf));
+		setValue('phone', formatPhone(parsed.phone));
+	}, [query]);
 
 	return (
 		<main className={'page'}>

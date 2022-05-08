@@ -10,7 +10,7 @@ type TextFieldProps = Omit<InputMaskProps, 'mask'> & {
 };
 
 export const TextField = forwardRef<InputMask, TextFieldProps>(({label, error, mask, ...props}, ref) => {
-	const [empty, setEmpty] = useState(true);
+	const [empty, setEmpty] = useState(false);
 
 	const onChange = useCallback<ChangeEventHandler<HTMLInputElement>>((event) => {
 		if (props.onChange) {

@@ -3,6 +3,7 @@ import {formatCpf, formatPhone} from '../helpers';
 import Popup from 'reactjs-popup';
 import {useUserContext} from '../context/User.context';
 import {useCallback} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 type UserProps = {
 	user: UserData;
@@ -10,6 +11,12 @@ type UserProps = {
 
 export const User = ({user}: UserProps) => {
 	const {removeUser} = useUserContext();
+
+	const navigate = useNavigate();
+
+	const onEdit = useCallback(() => {
+		navigate(`/users/edit?user=${JSON.stringify(user)}`);
+	}, [navigate, user]);
 
 	const onRemove = useCallback(() => {
 		removeUser(user.email);
@@ -29,7 +36,7 @@ export const User = ({user}: UserProps) => {
 				}
 			>
 				<div className={'actions'}>
-					<button className={'edit'}>Editar</button>
+					<button onClick={onEdit} className={'edit'}>Editar</button>
 					<button onClick={onRemove} className={'remove'}>Remover</button>
 				</div>
 			</Popup>
