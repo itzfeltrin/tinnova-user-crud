@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/User/index.tsx</title>
+    <title>Code coverage report for components/TextField/index.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/User</a> index.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/TextField</a> index.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">69.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>9/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>8/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,17 +106,12 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,17 +121,16 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,59 +149,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {UserData} from '../../types/user';
-import {formatCpf, formatPhone} from '../../helpers';
-import Popup from 'reactjs-popup';
-import {useUserContext} from '../../hooks/useUserContext';
-import {useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {ChangeEventHandler, forwardRef, useCallback, useState} from 'react';
+import {FieldError} from 'react-hook-form';
+import {getClassName} from '../../helpers';
+import InputMask, {Props as InputMaskProps} from 'react-input-mask';
 &nbsp;
-type UserProps = {
-	user: UserData;
-}
+type TextFieldProps = Omit&lt;InputMaskProps, 'mask'&gt; &amp; {
+	label: string;
+	error?: FieldError | undefined;
+	mask?: InputMaskProps['mask'];
+};
 &nbsp;
-export const User = ({user}: UserProps) =&gt; {
-	const {removeUser} = useUserContext();
+export const TextField = forwardRef&lt;InputMask, TextFieldProps&gt;(({label, error, mask, ...props}, ref) =&gt; {
+	const [empty, setEmpty] = useState(false);
 &nbsp;
-	const navigate = useNavigate();
+	const onChange = useCallback&lt;ChangeEventHandler&lt;HTMLInputElement&gt;&gt;(<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
+<span class="cstat-no" title="statement not covered" >		<span class="missing-if-branch" title="if path not taken" >I</span>if (props.onChange) {</span>
+<span class="cstat-no" title="statement not covered" >			props.onChange(event);</span>
+		}
+		const value = <span class="cstat-no" title="statement not covered" >event.target.value;</span>
+<span class="cstat-no" title="statement not covered" >		setEmpty(value === '');</span>
+	}, [props.onChange]);
 &nbsp;
-	const onEdit = useCallback(() =&gt; {
-		navigate(`/users/edit?user=${JSON.stringify(user)}`);
-	}, [navigate, user]);
-&nbsp;
-	const onRemove = useCallback(() =&gt; {
-		removeUser(user.email);
-	}, [removeUser, user.email]);
+	const renderComponent = (props: any) =&gt; mask ? &lt;InputMask mask={mask} {...props} /&gt; : &lt;input {...props} /&gt;;
 &nbsp;
 	return (
-		&lt;div className={'user'} data-testid={'user'}&gt;
-			&lt;Popup
-				position="bottom right"
-				className={'user-actions'}
-				trigger={
-					&lt;button className={'menu'} data-testid={'menu'}&gt;
-						&lt;span className={'dot'}/&gt;
-						&lt;span className={'dot'}/&gt;
-						&lt;span className={'dot'}/&gt;
-					&lt;/button&gt;
-				}
-			&gt;
-				&lt;div className={'actions'}&gt;
-					&lt;button onClick={onEdit} className={'edit'}&gt;Editar&lt;/button&gt;
-					&lt;button onClick={onRemove} className={'remove'}&gt;Remover&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/Popup&gt;
-			&lt;h2 className={'name'}&gt;{user.name}&lt;/h2&gt;
-			&lt;h3 className={'email'}&gt;{user.email}&lt;/h3&gt;
-			&lt;p&gt;&amp;#10022; &lt;strong&gt;CPF:&lt;/strong&gt; {formatCpf(user.cpf)}&lt;/p&gt;
-			&lt;p&gt;&amp;#10022; &lt;strong&gt;Telefone:&lt;/strong&gt; {formatPhone(user.phone)}&lt;/p&gt;
+		&lt;div className="text-field" data-testid="text-field"&gt;
+			&lt;div className="relative-box"&gt;
+				{renderComponent({
+					ref: ref,
+					id: props.name,
+					className: getClassName({
+						invalid: !!error,
+						empty
+					}),
+					...props,
+					onChange,
+				})}
+				&lt;label htmlFor={props.name}&gt;{label}&lt;/label&gt;
+			&lt;/div&gt;
+			{error &amp;&amp; &lt;span className={'error-message'}&gt;{error.message}&lt;/span&gt;}
 		&lt;/div&gt;
 	);
-};</pre></td></tr></table></pre>
+});
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

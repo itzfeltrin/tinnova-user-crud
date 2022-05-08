@@ -1,11 +1,11 @@
 import {ChangeEventHandler, forwardRef, useCallback, useState} from 'react';
 import {FieldError} from 'react-hook-form';
-import {getClassName} from '../helpers';
+import {getClassName} from '../../helpers';
 import InputMask, {Props as InputMaskProps} from 'react-input-mask';
 
 type TextFieldProps = Omit<InputMaskProps, 'mask'> & {
 	label: string;
-	error: FieldError | undefined;
+	error?: FieldError | undefined;
 	mask?: InputMaskProps['mask'];
 };
 
@@ -23,7 +23,7 @@ export const TextField = forwardRef<InputMask, TextFieldProps>(({label, error, m
 	const renderComponent = (props: any) => mask ? <InputMask mask={mask} {...props} /> : <input {...props} />;
 
 	return (
-		<div className="text-field">
+		<div className="text-field" data-testid="text-field">
 			<div className="relative-box">
 				{renderComponent({
 					ref: ref,
