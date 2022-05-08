@@ -6,7 +6,7 @@ import {TextField} from '../../components/TextField';
 import {Spinner} from '../../components/Spinner';
 import {useCallback, useEffect, useMemo} from 'react';
 import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
-import {useUserContext} from '../../context/User.context';
+import {useUserContext} from '../../hooks/useUserContext';
 import {formatCpf, formatPhone} from '../../helpers';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;

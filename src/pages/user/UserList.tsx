@@ -1,4 +1,4 @@
-import {useUserContext} from '../../context/User.context';
+import {useUserContext} from '../../hooks/useUserContext';
 import {User} from '../../components/User';
 import {Link} from 'react-router-dom';
 
