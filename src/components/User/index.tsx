@@ -1,7 +1,7 @@
-import {UserData} from '../types/user';
-import {formatCpf, formatPhone} from '../helpers';
+import {UserData} from '../../types/user';
+import {formatCpf, formatPhone} from '../../helpers';
 import Popup from 'reactjs-popup';
-import {useUserContext} from '../context/User.context';
+import {useUserContext} from '../../hooks/useUserContext';
 import {useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
 
@@ -23,12 +23,12 @@ export const User = ({user}: UserProps) => {
 	}, [removeUser, user.email]);
 
 	return (
-		<div className={'user'}>
+		<div className={'user'} data-testid={'user'}>
 			<Popup
 				position="bottom right"
 				className={'user-actions'}
 				trigger={
-					<button className={'menu'}>
+					<button className={'menu'} data-testid={'menu'}>
 						<span className={'dot'}/>
 						<span className={'dot'}/>
 						<span className={'dot'}/>

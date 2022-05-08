@@ -52,9 +52,7 @@ const UserContextProvider = (props: { children: React.ReactNode }) => {
 	);
 };
 
-const useUserContext = () => useContext(UserContext);
-
 export {
+	UserContext,
 	UserContextProvider,
-	useUserContext,
 };

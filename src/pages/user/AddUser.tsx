@@ -3,8 +3,6 @@ import * as yup from 'yup';
 import {UserData} from '../../types/user';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {TextField} from '../../components/TextField';
-// @ts-ignore
-import MaskedInput from 'react-text-mask';
 import {Spinner} from '../../components/Spinner';
 import {useCallback, useEffect, useMemo} from 'react';
 import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
@@ -13,8 +11,6 @@ import {formatCpf, formatPhone} from '../../helpers';
 
 const CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/;
 const PHONE_REGEX = /\+\d{2} \(\d{2}\) \d{4,5}-\d{4}/;
-
-const CPF_MASK = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 
 const formSchema: yup.SchemaOf<UserData> = yup.object({
 	name: yup.string().required('Preencha o campo'),

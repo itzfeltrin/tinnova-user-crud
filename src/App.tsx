@@ -1,7 +1,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {Router} from './router';
 import {UserData} from './types/user';
-import {useUserContext} from './context/User.context';
+import {useUserContext} from './hooks/useUserContext';
 
 function App() {
 	const {setUsers} = useUserContext();
